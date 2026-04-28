@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>陈乾坤 | SRE运维工程师</title>
+  <style>
+    :root {
+      --primary: #1565c0;
+      --dark: #1a1a2e;
+      --gray: #5f6368;
+      --light: #f8f9fa;
+      --accent: #34a853;
+      --border: #e0e0e0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      background: #f0f2f5;
+      color: var(--dark);
+      line-height: 1.65;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+      color: #fff;
+      padding: 48px 56px;
+    }
+
+    .name {
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 6px;
+    }
+
+    .title {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 14px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.92;
+    }
+
+    .contact-item svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* Body */
+    .body {
+      padding: 40px 56px;
+    }
+
+    .section {
+      margin-bottom: 36px;
+    }
+
+    .section:last-child { margin-bottom: 0; }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--primary);
+      display: inline-block;
+    }
+
+    /* Experience */
+    .exp-item { margin-bottom: 26px; }
+    .exp-item:last-child { margin-bottom: 0; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .exp-company {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .exp-period {
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    .exp-title {
+      font-size: 14px;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .exp-desc {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.8;
+    }
+
+    .exp-desc li {
+      margin-bottom: 5px;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .exp-desc li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 10px;
+    }
+
+    .skill-group {
+      margin-bottom: 14px;
+    }
+
+    .skill-group-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+      padding-left: 8px;
+      border-left: 3px solid var(--primary);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-left: 11px;
+    }
+
+    .skill-tag {
+      font-size: 12px;
+      color: #555;
+      background: var(--light);
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    /* Education */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .edu-school {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .edu-degree {
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .edu-time {
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    /* Certs */
+    .cert-list {
+      font-size: 14px;
+      color: #444;
+    }
+
+    .cert-item {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .cert-item::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 8px;
+      top: 4px;
+    }
+
+    /* Projects */
+    .proj-item { margin-bottom: 22px; }
+    .proj-item:last-child { margin-bottom: 0; }
+
+    .proj-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .proj-desc {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.8;
+    }
+
+    .proj-desc li {
+      margin-bottom: 4px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .proj-desc li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* Other projects */
+    .other-projects {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 2;
+      padding: 12px 16px;
+      background: var(--light);
+      border-radius: 6px;
+    }
+
+    /* Personal info row */
+    .info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--gray);
+      margin-bottom: 4px;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .container { box-shadow: none; margin: 0; max-width: 100%; }
+    }
+
+    @media (max-width: 600px) {
+      .header { padding: 32px 24px; }
+      .body { padding: 32px 24px; }
+      .name { font-size: 32px; }
+      .contact-row { flex-direction: column; gap: 10px; }
+      .exp-header { flex-direction: column; gap: 4px; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- 个人信息 -->
+  <div class="header">
+    <div class="name">陈乾坤</div>
+    <div class="title">SRE 运维工程师</div>
+    <div class="info-row">
+      <span>南京邮电大学通达学院 · 软件工程</span>
+      <span>|</span>
+      <span>1994-11-20</span>
+      <span>|</span>
+      <span>籍贯：南通海门</span>
+    </div>
+    <div class="contact-row" style="margin-top:12px;">
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <span>13260812194</span>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <span>dranake@163.com</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主体 -->
+  <div class="body">
+
+    <!-- 工作经历 -->
+    <div class="section">
+      <div class="section-title">工作经历</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">麦田能源</div>
+          <div class="exp-period">2025.09 – 2026.03</div>
+        </div>
+        <div class="exp-title">运维工程师</div>
+        <ul class="exp-desc">
+          <li>负责公司多套线上服务的日常监控、健康巡检与定期发版，保障核心业务系统稳定运行。</li>
+          <li>负责 GitLab CI 流水线的编写、维护与优化，代码集成与部署效率提升 20%。</li>
+          <li>基于 Grafana 完善业务与基础设施监控面板，优化 Prometheus 告警规则，提升告警准确性与时效性。</li>
+          <li>编写 Ansible、Shell/Python 自动化脚本，简化重复性操作，部署发版效率提升 50%。</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">荣耀（外包）</div>
+          <div class="exp-period">2024.09 – 2025.09</div>
+        </div>
+        <div class="exp-title">SRE 工程师</div>
+        <ul class="exp-desc">
+          <li>参与建设 7×24 小时 On-Call 响应机制，通过告警分级、收敛与路由策略，有效提升应急响应效率，MTTR 显著缩短。</li>
+          <li>负责 Grafana 监控数据源从 ClickHouse 迁移至 VictoriaMetrics，重新配置监控面板并优化查询性能。</li>
+          <li>利用 AIOps 平台及蓝鲸平台，开发自动化运维工具（数据库查询、批量操作等）。</li>
+          <li>参与容器资源利用率优化及日常告警治理，降低资源冗余并提升告警有效性。</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">杭州远传新业科技</div>
+          <div class="exp-period">2019.04 – 2023.06</div>
+        </div>
+        <div class="exp-title">运维组长</div>
+        <ul class="exp-desc">
+          <li>主导 10+ 个私有化项目安全整改，根据等保 2.0/3.0 要求完成漏洞修复及复测闭环。</li>
+          <li>编写《产品运维手册》《部署操作指南》等，建立标准化问题排查流程图，现场问题咨询量下降 40%。</li>
+          <li>重构部署脚本工具集（Shell/Python），抽象公共函数库实现脚本复用率大幅提升。</li>
+          <li>改造 Jenkins 基线化构建体系，自动化流水线日均构建任务 40+ 次，构建成功率从 82% 提升至 99%。</li>
+          <li>建立发布问题排查 SOP，通过日志埋点与监控指标增强，平均故障定位时间从 90 分钟缩短至 25 分钟。</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">南京药育科技</div>
+          <div class="exp-period">2018.01 – 2019.03</div>
+        </div>
+        <div class="exp-title">技术支持工程师</div>
+        <ul class="exp-desc">
+          <li>公司产品的部署维护及 JS 模块开发。</li>
+          <li>用户需求调研及反馈收集，产品使用文档输出与用户培训。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 专业技能 -->
+    <div class="section">
+      <div class="section-title">专业技能</div>
+
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <div class="skill-group-name">云原生与 SRE</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">K8s联邦集群</span>
+            <span class="skill-tag">ArgoCD</span>
+            <span class="skill-tag">SLO/SLI</span>
+            <span class="skill-tag">容量规划</span>
+            <span class="skill-tag">OpenTelemetry</span>
+            <span class="skill-tag">ELK/EFK</span>
+            <span class="skill-tag">阿里云SLS</span>
+            <span class="skill-tag">夜莺告警</span>
+            <span class="skill-tag">Istio</span>
+            <span class="skill-tag">Nacos</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">自动化、CI/CD 与 GitOps</div>
+          <div class="skill-tags">
+            <span class="skill-tag">GitLab CI</span>
+            <span class="skill-tag">Jenkins Pipeline</span>
+            <span class="skill-tag">Ansible</span>
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">Helm</span>
+            <span class="skill-tag">ArgoCD</span>
+            <span class="skill-tag">自定义Chart</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">基础设施与中间件</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Nginx/OpenResty</span>
+            <span class="skill-tag">Caddy</span>
+            <span class="skill-tag">Kong</span>
+            <span class="skill-tag">Apisix</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">MinIO</span>
+            <span class="skill-tag">Doris</span>
+            <span class="skill-tag">Flink</span>
+            <span class="skill-tag">Kafka</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">开发与智能运维</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Shell</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Go</span>
+            <span class="skill-tag">Lua</span>
+            <span class="skill-tag">OpenClaw</span>
+            <span class="skill-tag">Hermes</span>
+            <span class="skill-tag">Cursor/Trae</span>
+            <span class="skill-tag">LLM</span>
+            <span class="skill-tag">LLamaFactory</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 项目经验 -->
+    <div class="section">
+      <div class="section-title">项目经验</div>
+
+      <div class="proj-item">
+        <div class="proj-name">江苏 12345 市长热线</div>
+        <ul class="proj-desc">
+          <li>日常巡检维护，将单点部署完善为高可用集群部署。</li>
+          <li>负责阿里 TTS、ASR 引擎及智能产品全系列部署维护。</li>
+          <li>推动产品容器化改造，部分子站迁移至 K8s 并稳定运行。</li>
+          <li>在 K8s 部署 ELK + Filebeat + Kafka 日志管理集群并输出文档。</li>
+          <li>编写 Redis、MySQL、ES 等集群部署脚本及监控脚本。</li>
+          <li>及时响应客户需求，提供外呼、质检等统计数据与台账。</li>
+        </ul>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-name">商推算法服务</div>
+        <ul class="proj-desc">
+          <li>3000+ 服务器规模的业务运维，高频变更引发的线上事故率降低 30%。</li>
+          <li>将模型回滚、配置热更新等复杂运维操作沉淀为平台化标准操作项，输出详尽 SOP。</li>
+          <li>主导业务线告警治理专项，开发告警智能关联与聚合脚本，同源告警合并，日均处理告警条数显著减少。</li>
+        </ul>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-name">其他参与项目</div>
+        <div class="other-projects">
+          天翼智能中台 · 南银法巴智能话务平台 · 广汽智能外呼 · 辽宁电信 · 联通中讯 · 京东方 · T3出行 · 山东人社 · 福建12333 · 浙达电力 · 南昌12345 · 杭州地铁 · 青岛港 · 电信排班系统 · 国通 等项目运维工作
+        </div>
+      </div>
+    </div>
+
+    <!-- 教育背景 -->
+    <div class="section">
+      <div class="section-title">教育背景</div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-school">南京邮电大学通达学院</div>
+          <div class="edu-degree">软件工程 · 本科</div>
+        </div>
+        <div class="edu-time">2015.09 – 2019.06</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
