@@ -95,6 +95,71 @@
       display: inline-block;
     }
 
+    /* 技术能力概览 */
+    .skill-overview {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.9;
+      margin-bottom: 20px;
+      padding-left: 4px;
+    }
+
+    .skill-overview-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+
+    .skill-overview li {
+      margin-bottom: 5px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .skill-overview li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    /* Skills tags */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 10px;
+    }
+
+    .skill-group {
+      margin-bottom: 14px;
+    }
+
+    .skill-group-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+      padding-left: 8px;
+      border-left: 3px solid var(--primary);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-left: 11px;
+    }
+
+    .skill-tag {
+      font-size: 12px;
+      color: #555;
+      background: var(--light);
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
     /* Experience */
     .exp-item { margin-bottom: 26px; }
     .exp-item:last-child { margin-bottom: 0; }
@@ -144,41 +209,6 @@
       color: var(--primary);
     }
 
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 10px;
-    }
-
-    .skill-group {
-      margin-bottom: 14px;
-    }
-
-    .skill-group-name {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 6px;
-      padding-left: 8px;
-      border-left: 3px solid var(--primary);
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      padding-left: 11px;
-    }
-
-    .skill-tag {
-      font-size: 12px;
-      color: #555;
-      background: var(--light);
-      padding: 3px 10px;
-      border-radius: 4px;
-    }
-
     /* Education */
     .edu-item {
       display: flex;
@@ -201,27 +231,6 @@
     .edu-time {
       font-size: 13px;
       color: var(--gray);
-    }
-
-    /* Certs */
-    .cert-list {
-      font-size: 14px;
-      color: #444;
-    }
-
-    .cert-item {
-      margin-bottom: 6px;
-      padding-left: 14px;
-      position: relative;
-    }
-
-    .cert-item::before {
-      content: '◆';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 8px;
-      top: 4px;
     }
 
     /* Projects */
@@ -254,7 +263,6 @@
       color: var(--accent);
     }
 
-    /* Other projects */
     .other-projects {
       font-size: 13px;
       color: var(--gray);
@@ -264,7 +272,6 @@
       border-radius: 6px;
     }
 
-    /* Personal info row */
     .info-row {
       display: flex;
       flex-wrap: wrap;
@@ -318,6 +325,98 @@
 
   <!-- 主体 -->
   <div class="body">
+
+    <!-- 专业技能 -->
+    <div class="section">
+      <div class="section-title">专业技能</div>
+
+      <!-- 技术能力概览 -->
+      <ul class="skill-overview">
+        <div class="skill-overview-title">一、云原生与SRE稳定性专家</div>
+        <li>K8s生产治理：精通大规模K8s集群运维，通过HPA与精细化调度，实现平均资源利用率提升20%+，节约基础设施成本。</li>
+        <li>全链路可观测性：从0到1搭建基于OpenTelemetry与夜莺的监控体系，实现全栈可观测。</li>
+        <li>系统性告警治理：主导告警体系治理，通过分级、降噪、闭环管理，将无效告警总量削减30%，并编写告警自愈脚本工具提升系统可用性。</li>
+        <li>SRE稳定性实践：基于SLO与安全灰度发布流程，推行部署发版checklist，保障核心服务可用性&gt;99.95%，故障平均恢复时间（MTTR）降低30%。</li>
+
+        <div class="skill-overview-title">二、自动化与高效交付</div>
+        <li>CI/CD流水线/GitOps实践：设计落地企业级自动化交付平台，部署频率提升300%，部署失败率降低70%。</li>
+        <li>多集群管理：掌握k8s联邦集群及ArgoCD多集群管理能力。</li>
+        <li>智能运维：善用AI工具（OpenClaw/Cursor）自动化复杂任务，运维效率提升60%+。</li>
+      </ul>
+
+      <!-- 详细技术栈 -->
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <div class="skill-group-name">云原生</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Helm</span>
+            <span class="skill-tag">ArgoCD</span>
+            <span class="skill-tag">Istio</span>
+            <span class="skill-tag">Nacos</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">可观测性</div>
+          <div class="skill-tags">
+            <span class="skill-tag">OpenTelemetry</span>
+            <span class="skill-tag">ELK</span>
+            <span class="skill-tag">夜莺</span>
+            <span class="skill-tag">Prometheus</span>
+            <span class="skill-tag">Grafana</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">CI/CD 与自动化</div>
+          <div class="skill-tags">
+            <span class="skill-tag">GitLab CI</span>
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">Ansible</span>
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">GitOps</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">中间件</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Nginx</span>
+            <span class="skill-tag">Kong</span>
+            <span class="skill-tag">Apisix</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Doris</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">Kafka</span>
+            <span class="skill-tag">Flink</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">开发语言</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Shell</span>
+            <span class="skill-tag">Go</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">智能工具</div>
+          <div class="skill-tags">
+            <span class="skill-tag">OpenClaw</span>
+            <span class="skill-tag">Hermes</span>
+            <span class="skill-tag">Cursor</span>
+            <span class="skill-tag">Trae</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
     <!-- 工作经历 -->
     <div class="section">
@@ -376,79 +475,6 @@
           <li>公司产品的部署维护及 JS 模块开发。</li>
           <li>用户需求调研及反馈收集，产品使用文档输出与用户培训。</li>
         </ul>
-      </div>
-    </div>
-
-    <!-- 专业技能 -->
-    <div class="section">
-      <div class="section-title">专业技能</div>
-
-      <div class="skills-grid">
-
-        <div class="skill-group">
-          <div class="skill-group-name">云原生与 SRE</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Kubernetes</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">K8s联邦集群</span>
-            <span class="skill-tag">ArgoCD</span>
-            <span class="skill-tag">SLO/SLI</span>
-            <span class="skill-tag">容量规划</span>
-            <span class="skill-tag">OpenTelemetry</span>
-            <span class="skill-tag">ELK/EFK</span>
-            <span class="skill-tag">阿里云SLS</span>
-            <span class="skill-tag">夜莺告警</span>
-            <span class="skill-tag">Istio</span>
-            <span class="skill-tag">Nacos</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group-name">自动化、CI/CD 与 GitOps</div>
-          <div class="skill-tags">
-            <span class="skill-tag">GitLab CI</span>
-            <span class="skill-tag">Jenkins Pipeline</span>
-            <span class="skill-tag">Ansible</span>
-            <span class="skill-tag">Terraform</span>
-            <span class="skill-tag">Helm</span>
-            <span class="skill-tag">ArgoCD</span>
-            <span class="skill-tag">自定义Chart</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group-name">基础设施与中间件</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Nginx/OpenResty</span>
-            <span class="skill-tag">Caddy</span>
-            <span class="skill-tag">Kong</span>
-            <span class="skill-tag">Apisix</span>
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">Redis</span>
-            <span class="skill-tag">MongoDB</span>
-            <span class="skill-tag">MinIO</span>
-            <span class="skill-tag">Doris</span>
-            <span class="skill-tag">Flink</span>
-            <span class="skill-tag">Kafka</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group-name">开发与智能运维</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Shell</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Go</span>
-            <span class="skill-tag">Lua</span>
-            <span class="skill-tag">OpenClaw</span>
-            <span class="skill-tag">Hermes</span>
-            <span class="skill-tag">Cursor/Trae</span>
-            <span class="skill-tag">LLM</span>
-            <span class="skill-tag">LLamaFactory</span>
-          </div>
-        </div>
-
       </div>
     </div>
 
